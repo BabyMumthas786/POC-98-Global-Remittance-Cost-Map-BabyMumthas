@@ -108,20 +108,23 @@ graph TD
 
 ## Screenshots
 
-### 1. Global Corridor Map & Drawer
-![Global Corridor Map & Drawer](screenshots/map-view.png)
+### 1. Dashboard Overview & Fee Analytics
+![Dashboard Overview](screenshots/dashboard-overview.png)
 
-### 2. Fee Comparison Chart Analytics
-![Fee Comparison Chart Analytics](screenshots/fee-compare.png)
+### 2. Speed Ladder & Access Scorecard
+![Speed and Accessibility](screenshots/speed-and-accessibility.png)
 
-### 3. Speed Ladder & Settlement Tiers
-![Speed Ladder & Settlement Tiers](screenshots/speed-ladder.png)
+### 3. Corridor Explorer Table Database
+![Corridor Explorer](screenshots/corridor-explorer.png)
 
-### 4. Access Points Indexing
-![Access Points Indexing](screenshots/access-points.png)
+### 4. Download Center & Ingestion Metadata
+![Downloads Center](screenshots/downloads-center.png)
 
-### 5. Corridor Explorer Table
-![Corridor Explorer Table](screenshots/corridor-explorer.png)
+### 5. Payment Rails Control Library
+![Knowledge Library Control](screenshots/knowledge-library-control.png)
+
+### 6. Formal vs Informal Channels Analysis
+![Knowledge Library Channels](screenshots/knowledge-library-channels.png)
 
 *All screenshots are stored inside the `screenshots/` directory.*
 
