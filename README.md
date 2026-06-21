@@ -106,6 +106,27 @@ graph TD
 
 ---
 
+## Screenshots
+
+### 1. Global Corridor Map & Drawer
+![Global Corridor Map & Drawer](screenshots/map-view.png)
+
+### 2. Fee Comparison Chart Analytics
+![Fee Comparison Chart Analytics](screenshots/fee-compare.png)
+
+### 3. Speed Ladder & Settlement Tiers
+![Speed Ladder & Settlement Tiers](screenshots/speed-ladder.png)
+
+### 4. Access Points Indexing
+![Access Points Indexing](screenshots/access-points.png)
+
+### 5. Corridor Explorer Table
+![Corridor Explorer Table](screenshots/corridor-explorer.png)
+
+*All screenshots are stored inside the `screenshots/` directory.*
+
+---
+
 ## Intelligence Layer
 Instead of serving static raw files, the backend logic:
 - Computes real-time corridor risk assessments.
