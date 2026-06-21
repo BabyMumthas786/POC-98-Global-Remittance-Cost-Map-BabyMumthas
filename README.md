@@ -75,7 +75,7 @@ Provides high-level operational visibility and system health:
 
 ```mermaid
 graph TD
-    subgraph Frontend (Next.js 15+)
+    subgraph Frontend ["Frontend (Next.js 15+)"]
         UI[Intelligence Dashboard UI]
         Map[React Leaflet Map]
         Charts[Recharts Analytics]
@@ -83,14 +83,14 @@ graph TD
         APIClient[Client API Adapter]
     end
 
-    subgraph Backend (FastAPI / Python)
+    subgraph Backend ["Backend (FastAPI / Python)"]
         API[FastAPI Endpoints]
         DB[(In-Memory Database / JSON)]
         Gen[Mock Data Generator]
         Adapters[ETL Data Adapters]
     end
 
-    subgraph External Sources (Future)
+    subgraph ExternalSources ["External Sources (Future)"]
         WB[World Bank API]
         ECB[ECB Data Portal]
     end
