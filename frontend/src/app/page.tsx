@@ -64,7 +64,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center gap-4 text-slate-200">
+      <div className="min-h-screen bg-dna-bg flex flex-col items-center justify-center gap-4 text-slate-200">
         <Loader2 className="w-10 h-10 text-emerald-500 animate-spin" />
         <div className="text-center">
           <h2 className="text-sm font-bold tracking-wider uppercase">Loading Intelligence Portal</h2>
@@ -76,14 +76,14 @@ export default function Home() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-slate-200">
-        <div className="max-w-md w-full bg-slate-900 border border-red-500/20 p-6 rounded-2xl shadow-2xl space-y-4 text-center">
+      <div className="min-h-screen bg-dna-bg flex flex-col items-center justify-center p-6 text-slate-200">
+        <div className="max-w-md w-full bg-dna-surface border border-red-500/20 p-6 rounded-2xl shadow-2xl space-y-4 text-center">
           <ServerCrash className="w-12 h-12 text-red-500 mx-auto" />
           <h2 className="text-base font-bold uppercase tracking-wider text-slate-100">Service Disconnected</h2>
           <p className="text-xs text-slate-400 leading-relaxed">{error}</p>
-          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 text-[11px] text-left space-y-2">
+          <div className="bg-dna-bg p-4 rounded-xl border border-slate-800 text-[11px] text-left space-y-2">
             <span className="font-bold text-slate-300 block mb-1">To start the backend service:</span>
-            <code className="block text-emerald-400 bg-slate-900 p-2 rounded font-mono">
+            <code className="block text-emerald-400 bg-dna-surface p-2 rounded font-mono">
               cd backend<br />
               .venv\\Scripts\\activate<br />
               python run.py
@@ -102,9 +102,9 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-emerald-500 selection:text-slate-950 font-sans pb-16">
+    <div className="min-h-screen bg-dna-bg text-slate-200 selection:bg-emerald-500 selection:text-slate-950 font-sans pb-16">
       {/* Header Banner */}
-      <header className="border-b border-slate-900 bg-slate-950/80 backdrop-blur sticky top-0 z-[1000] px-4 md:px-8 py-3.5 flex justify-between items-center shadow-lg">
+      <header className="border-b border-slate-900 bg-dna-bg/80 backdrop-blur sticky top-0 z-[1000] px-4 md:px-8 py-3.5 flex justify-between items-center shadow-lg">
         <div className="flex items-center gap-3">
           <div className="w-7 h-7 rounded-lg bg-emerald-500 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-emerald-500/10">
             R
@@ -112,7 +112,7 @@ export default function Home() {
           <div>
             <h1 className="text-xs font-black tracking-widest uppercase text-slate-100 flex items-center gap-1.5">
               Global Remittance Cost Map
-              <span className="bg-slate-900 border border-slate-800 text-[8px] px-1.5 py-0.5 rounded text-slate-400 font-normal">
+              <span className="bg-dna-surface border border-slate-800 text-[8px] px-1.5 py-0.5 rounded text-slate-400 font-normal">
                 POC-98
               </span>
             </h1>
@@ -136,7 +136,7 @@ export default function Home() {
           <button
             onClick={handleRefresh}
             disabled={refreshing}
-            className="bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold px-3 py-1.5 rounded border border-slate-800 hover:border-slate-700 transition-colors flex items-center gap-1.5"
+            className="bg-dna-surface hover:bg-slate-800 text-slate-300 font-bold px-3 py-1.5 rounded border border-slate-800 hover:border-slate-700 transition-colors flex items-center gap-1.5"
           >
             <RefreshCw className={`w-3 h-3 ${refreshing ? "animate-spin" : ""}`} />
             Refresh
