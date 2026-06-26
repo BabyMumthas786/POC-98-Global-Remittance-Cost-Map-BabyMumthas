@@ -104,7 +104,7 @@ export default function CorridorMap({
           <Zap className="w-4 h-4 text-emerald-400" />
           Interactive Corridor Map
         </h3>
-        
+
         {/* Search */}
         <div className="relative">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
