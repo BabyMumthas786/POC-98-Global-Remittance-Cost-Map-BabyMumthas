@@ -59,7 +59,7 @@ export default function AccessPoints({ selectedCorridor, allCorridors }: AccessP
   }));
 
   return (
-    <div className="bg-slate-950/65 border border-slate-800/80 p-5 rounded-2xl flex flex-col h-full shadow-xl">
+    <div className="bg-cine-surface/50 border border-cine-border p-5 rounded-2xl flex flex-col h-full shadow-xl">
       <div className="border-b border-slate-800/60 pb-3 mb-4">
         <h3 className="text-sm font-semibold text-slate-100 flex items-center gap-1.5">
           <Layers className="w-4 h-4 text-emerald-400" />
@@ -92,7 +92,7 @@ export default function AccessPoints({ selectedCorridor, allCorridors }: AccessP
                     <span>{p.name}</span>
                     <span>{p.score}% index</span>
                   </div>
-                  <div className="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden border border-slate-850">
+                  <div className="w-full bg-cine-bg h-1.5 rounded-full overflow-hidden border border-cine-border">
                     <div
                       className={`h-full ${progressColor} transition-all duration-500`}
                       style={{ width: `${p.score}%` }}
@@ -113,7 +113,7 @@ export default function AccessPoints({ selectedCorridor, allCorridors }: AccessP
           <div className="space-y-4.5">
             {channelDetails.map((ch) => (
               <div key={ch.name} className="flex items-start gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-cine-bg border border-cine-border flex items-center justify-center shrink-0">
                   {ch.icon}
                 </div>
                 <div className="flex-1 min-w-0">

@@ -47,11 +47,11 @@ export default function CorridorTable({
           const row = info.row.original;
           return (
             <div className="flex items-center gap-2 font-medium text-slate-200">
-              <span className="bg-slate-900 border border-slate-800 text-[10px] px-1.5 py-0.5 rounded font-mono">
+              <span className="bg-cine-bg border border-cine-border text-[10px] px-1.5 py-0.5 rounded font-mono">
                 {row.origin_code}
               </span>
               <ArrowRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-              <span className="bg-slate-900 border border-slate-800 text-[10px] px-1.5 py-0.5 rounded font-mono">
+              <span className="bg-cine-bg border border-cine-border text-[10px] px-1.5 py-0.5 rounded font-mono">
                 {row.destination_code}
               </span>
               <span className="text-[11px] ml-1 hidden sm:inline text-slate-400">
@@ -108,7 +108,7 @@ export default function CorridorTable({
               {row.providers.map((p) => (
                 <span
                   key={p.name}
-                  className="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-[9px] text-slate-300 font-medium"
+                  className="px-1.5 py-0.5 rounded bg-cine-bg border border-cine-border text-[9px] text-slate-300 font-medium"
                 >
                   {p.name}
                 </span>
@@ -162,7 +162,7 @@ export default function CorridorTable({
   });
 
   return (
-    <div className="bg-slate-950/65 border border-slate-800/80 rounded-2xl p-5 shadow-xl flex flex-col gap-4">
+    <div className="bg-cine-surface/50 border border-cine-border rounded-2xl p-5 shadow-xl flex flex-col gap-4">
       {/* Filters Header */}
       <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-3 border-b border-slate-800/60 pb-3">
         <div>
@@ -183,7 +183,7 @@ export default function CorridorTable({
               placeholder="Search database..."
               value={globalFilter}
               onChange={(e) => setGlobalFilter(e.target.value)}
-              className="bg-slate-900 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500/50 w-full md:w-48 placeholder-slate-500"
+              className="bg-cine-bg border border-cine-border rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-violet-500/50 w-full md:w-48 placeholder-slate-500"
             />
           </div>
 
@@ -191,7 +191,7 @@ export default function CorridorTable({
           <select
             value={costTierFilter}
             onChange={(e) => setCostTierFilter(e.target.value)}
-            className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none"
+            className="bg-cine-bg border border-cine-border rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none"
           >
             <option value="all">All Costs</option>
             <option value="low">Cheap (&lt; 3%)</option>
@@ -211,7 +211,7 @@ export default function CorridorTable({
       </div>
 
       {/* Responsive Table grid */}
-      <div className="overflow-x-auto rounded-lg border border-slate-900">
+      <div className="overflow-x-auto rounded-lg border border-cine-border">
         <table className="w-full border-collapse text-left text-[11px] text-slate-300">
           <thead className="bg-slate-900/80 border-b border-slate-850 text-[10px] text-slate-400 font-bold uppercase tracking-wider">
             {table.getHeaderGroups().map((hg) => (

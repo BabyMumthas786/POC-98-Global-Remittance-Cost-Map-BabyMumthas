@@ -97,9 +97,9 @@ export default function CorridorMap({
   };
 
   return (
-    <div className="relative w-full h-[600px] rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/65 shadow-2xl">
+    <div className="relative w-full h-[600px] rounded-2xl overflow-hidden border border-cine-border bg-cine-surface/50 shadow-2xl">
       {/* Map Controls & Header */}
-      <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-2 max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-800/50 shadow-xl">
+      <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-2 max-w-sm w-full bg-cine-surface/90 backdrop-blur-md p-4 rounded-xl border border-cine-border/50 shadow-xl">
         <h3 className="text-sm font-semibold text-slate-100 flex items-center gap-1.5">
           <Zap className="w-4 h-4 text-emerald-400" />
           Interactive Corridor Map
@@ -113,7 +113,7 @@ export default function CorridorMap({
             placeholder="Search country or code..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-4 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500/50"
+            className="w-full bg-cine-bg border border-cine-border rounded-lg pl-9 pr-4 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-violet-500/50"
           />
         </div>
 
@@ -124,7 +124,7 @@ export default function CorridorMap({
             <select
               value={costFilter}
               onChange={(e) => setCostFilter(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-md p-1.5 text-[11px] text-slate-200 focus:outline-none"
+              className="w-full bg-cine-bg border border-cine-border rounded-md p-1.5 text-[11px] text-slate-200 focus:outline-none"
             >
               <option value="all">All Costs</option>
               <option value="low">Low (&lt;3%)</option>
@@ -137,7 +137,7 @@ export default function CorridorMap({
             <select
               value={speedFilter}
               onChange={(e) => setSpeedFilter(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-md p-1.5 text-[11px] text-slate-200 focus:outline-none"
+              className="w-full bg-cine-bg border border-cine-border rounded-md p-1.5 text-[11px] text-slate-200 focus:outline-none"
             >
               <option value="all">All Speeds</option>
               <option value="instant">Instant (&lt;1h)</option>
@@ -216,7 +216,7 @@ export default function CorridorMap({
 
       {/* Corridor details sliding drawer */}
       {selectedCorridor && (
-        <div className="absolute top-4 left-4 z-[1000] max-w-sm w-full bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-xl shadow-2xl p-5 text-slate-200 overflow-y-auto max-h-[560px]">
+        <div className="absolute top-4 left-4 z-[1000] max-w-sm w-full bg-cine-surface/95 backdrop-blur-md border border-cine-border rounded-xl shadow-2xl p-5 text-slate-200 overflow-y-auto max-h-[560px]">
           <div className="flex justify-between items-start mb-4 border-b border-slate-800/80 pb-3">
             <div>
               <div className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase">Active Corridor</div>
@@ -228,7 +228,7 @@ export default function CorridorMap({
             </div>
             <button
               onClick={() => onSelectCorridor(null)}
-              className="p-1 rounded-md bg-slate-850 hover:bg-slate-800 text-slate-400 hover:text-slate-200 transition-colors"
+              className="p-1 rounded-md bg-cine-bg/60 hover:bg-cine-border text-slate-400 hover:text-slate-200 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -236,19 +236,19 @@ export default function CorridorMap({
 
           {/* Quick stats grid */}
           <div className="grid grid-cols-3 gap-2.5 mb-5 text-center">
-            <div className="bg-slate-950/50 p-2.5 rounded-lg border border-slate-800/40">
+            <div className="bg-cine-bg/50 p-2.5 rounded-lg border border-cine-border/40">
               <span className="text-[9px] text-slate-400 block uppercase">Avg Cost</span>
               <span className="text-sm font-bold text-emerald-400 mt-1 block">
                 {selectedCorridor.average_cost_percent}%
               </span>
             </div>
-            <div className="bg-slate-950/50 p-2.5 rounded-lg border border-slate-800/40">
+            <div className="bg-cine-bg/50 p-2.5 rounded-lg border border-cine-border/40">
               <span className="text-[9px] text-slate-400 block uppercase">Avg Speed</span>
               <span className="text-sm font-bold text-blue-400 mt-1 block">
                 {selectedCorridor.average_speed_hours}h
               </span>
             </div>
-            <div className="bg-slate-950/50 p-2.5 rounded-lg border border-slate-800/40">
+            <div className="bg-cine-bg/50 p-2.5 rounded-lg border border-cine-border/40">
               <span className="text-[9px] text-slate-400 block uppercase">Risk Index</span>
               <span className="text-sm font-bold text-amber-500 mt-1 block flex items-center justify-center gap-0.5">
                 <AlertTriangle className="w-3 h-3" />

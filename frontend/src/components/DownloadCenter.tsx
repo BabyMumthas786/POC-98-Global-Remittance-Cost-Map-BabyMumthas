@@ -7,7 +7,7 @@ import sourceQualityData from "@/data/source-quality.json";
 
 export default function DownloadCenter() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 bg-slate-950/65 border border-slate-800/80 p-5 rounded-2xl shadow-xl">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 bg-cine-surface/50 border border-cine-border p-5 rounded-2xl shadow-xl">
       {/* Left side: Download Center */}
       <div className="space-y-3.5">
         <div>
@@ -24,7 +24,7 @@ export default function DownloadCenter() {
           {/* CSV Download Card */}
           <a
             href={CSV_DOWNLOAD_URL}
-            className="flex flex-col justify-between bg-slate-900/40 hover:bg-slate-900 border border-slate-800 hover:border-slate-700/80 p-3.5 rounded-xl transition-all cursor-pointer group"
+            className="flex flex-col justify-between bg-cine-bg/40 hover:bg-cine-bg border border-cine-border hover:border-cine-border-med p-3.5 rounded-xl transition-all cursor-pointer group"
           >
             <div className="flex justify-between items-start mb-2">
               <FileSpreadsheet className="w-6 h-6 text-emerald-400 group-hover:scale-105 transition-transform" />
@@ -47,7 +47,7 @@ export default function DownloadCenter() {
           {/* JSON Download Card */}
           <a
             href={JSON_DOWNLOAD_URL}
-            className="flex flex-col justify-between bg-slate-900/40 hover:bg-slate-900 border border-slate-800 hover:border-slate-700/80 p-3.5 rounded-xl transition-all cursor-pointer group"
+            className="flex flex-col justify-between bg-cine-bg/40 hover:bg-cine-bg border border-cine-border hover:border-cine-border-med p-3.5 rounded-xl transition-all cursor-pointer group"
           >
             <div className="flex justify-between items-start mb-2">
               <FileJson className="w-6 h-6 text-blue-400 group-hover:scale-105 transition-transform" />

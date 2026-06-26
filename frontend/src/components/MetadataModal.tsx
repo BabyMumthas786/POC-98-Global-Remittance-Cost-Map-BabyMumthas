@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { X, Github, Code2, Cpu, Layers, User, Hash, Users } from "lucide-react";
+import { X, ExternalLink, Code2, Cpu, Layers, User, Hash, Users } from "lucide-react";
 
 interface MetadataModalProps {
   isOpen: boolean;
@@ -86,7 +86,7 @@ export default function MetadataModal({ isOpen, onClose }: MetadataModalProps) {
             </div>
 
             <div className="flex items-center gap-3 bg-cine-bg/60 p-3 rounded-xl border border-cine-border">
-              <Github className="w-4 h-4 text-slate-300 shrink-0" />
+              <ExternalLink className="w-4 h-4 text-slate-300 shrink-0" />
               <div>
                 <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold block">GitHub</span>
                 <a

@@ -85,7 +85,7 @@ export default function SpeedLadder({ selectedCorridor, allCorridors }: SpeedLad
   ];
 
   return (
-    <div className="bg-slate-950/65 border border-slate-800/80 p-5 rounded-2xl flex flex-col h-full shadow-xl">
+    <div className="bg-cine-surface/50 border border-cine-border p-5 rounded-2xl flex flex-col h-full shadow-xl">
       <div className="border-b border-slate-800/60 pb-3 mb-4">
         <h3 className="text-sm font-semibold text-slate-100 flex items-center gap-1.5">
           <Clock className="w-4 h-4 text-emerald-400" />
@@ -114,7 +114,7 @@ export default function SpeedLadder({ selectedCorridor, allCorridors }: SpeedLad
               )}
 
               {/* Icon Container */}
-              <div className="w-9 h-9 rounded-lg bg-slate-950/80 border border-slate-800/50 flex items-center justify-center shrink-0 z-10 shadow-md">
+              <div className="w-9 h-9 rounded-lg bg-cine-bg/80 border border-cine-border/50 flex items-center justify-center shrink-0 z-10 shadow-md">
                 {tier.icon}
               </div>
 
@@ -144,7 +144,7 @@ export default function SpeedLadder({ selectedCorridor, allCorridors }: SpeedLad
                       return (
                         <div
                           key={p.name}
-                          className="px-2 py-1 rounded bg-slate-950/80 text-[10px] text-slate-300 border border-slate-850 shadow-inner flex items-center gap-1.5"
+                          className="px-2 py-1 rounded bg-cine-bg/80 text-[10px] text-slate-300 border border-cine-border shadow-inner flex items-center gap-1.5"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                           <span className="font-medium text-slate-200">{p.name}</span>

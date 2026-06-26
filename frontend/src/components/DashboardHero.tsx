@@ -59,13 +59,13 @@ export default function DashboardHero({ summary }: DashboardHeroProps) {
       {cards.map((card, idx) => (
         <div
           key={idx}
-          className={`bg-slate-950/65 border ${card.colorClass} rounded-2xl p-4 flex flex-col justify-between hover:scale-[1.02] hover:border-slate-700/50 transition-all duration-300 shadow-lg`}
+          className={`bg-cine-surface/50 border ${card.colorClass} rounded-2xl p-4 flex flex-col justify-between hover:scale-[1.02] hover:border-cine-border-med transition-all duration-300 shadow-lg`}
         >
           <div className="flex justify-between items-center mb-3">
-            <span className="text-[10px] font-bold text-slate-400 tracking-wider uppercase font-semibold">
+            <span className="text-[10px] font-bold text-slate-400 tracking-wider uppercase">
               {card.title}
             </span>
-            <div className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 shadow-inner">
+            <div className="p-1.5 rounded-lg bg-cine-bg/80 border border-cine-border shadow-inner">
               {card.icon}
             </div>
           </div>

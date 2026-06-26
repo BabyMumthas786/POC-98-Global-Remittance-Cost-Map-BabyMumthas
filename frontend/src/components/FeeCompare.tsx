@@ -25,7 +25,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
-      <div className="bg-slate-900 border border-slate-800 p-3 rounded-lg shadow-xl text-slate-200">
+      <div className="bg-cine-surface/90 border border-cine-border p-3 rounded-lg shadow-xl text-slate-200">
         <div className="text-xs font-bold text-slate-100 mb-1.5">{data.name}</div>
         <div className="space-y-1 text-[11px]">
           <div className="flex justify-between gap-4 text-emerald-400">
@@ -129,7 +129,7 @@ export default function FeeCompare({ selectedCorridor, allCorridors }: FeeCompar
 
 
   return (
-    <div className="bg-slate-950/65 border border-slate-800/80 p-5 rounded-2xl flex flex-col h-full shadow-xl">
+    <div className="bg-cine-surface/50 border border-cine-border p-5 rounded-2xl flex flex-col h-full shadow-xl">
       <div className="flex justify-between items-start mb-4 border-b border-slate-800/60 pb-3">
         <div>
           <h3 className="text-sm font-semibold text-slate-100 flex items-center gap-1.5">
@@ -142,7 +142,7 @@ export default function FeeCompare({ selectedCorridor, allCorridors }: FeeCompar
               : `Global average provider cost breakdown of sending $${SEND_AMOUNT}`}
           </p>
         </div>
-        <div className="bg-slate-900/60 text-[10px] text-slate-300 font-semibold px-2 py-1 border border-slate-800 rounded">
+        <div className="bg-cine-bg/60 text-[10px] text-slate-300 font-semibold px-2 py-1 border border-cine-border rounded">
           Amount: ${SEND_AMOUNT} USD
         </div>
       </div>
