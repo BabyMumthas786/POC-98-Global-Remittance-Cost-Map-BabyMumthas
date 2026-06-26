@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Corridor, DashboardSummary } from "@/types";
 import { fetchCorridors, fetchSummary } from "@/lib/api";
 import DashboardHero from "@/components/DashboardHero";
@@ -9,9 +9,11 @@ import FeeCompare from "@/components/FeeCompare";
 import SpeedLadder from "@/components/SpeedLadder";
 import AccessPoints from "@/components/AccessPoints";
 import CorridorTable from "@/components/CorridorTable";
-import EducationalCards from "@/components/EducationalCards";
 import DownloadCenter from "@/components/DownloadCenter";
-import { Loader2, ServerCrash, RefreshCw, Layers } from "lucide-react";
+import CinematicHeader from "@/components/CinematicHeader";
+import MetadataModal from "@/components/MetadataModal";
+import IntelligencePanel from "@/components/IntelligencePanel";
+import { Loader2, ServerCrash, RefreshCw, BookOpen } from "lucide-react";
 
 export default function Home() {
   const [corridors, setCorridors] = useState<Corridor[]>([]);
@@ -21,6 +23,10 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+
+  // New Phase 2 state
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isMetadataOpen, setIsMetadataOpen] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -62,10 +68,16 @@ export default function Home() {
     setRefreshTrigger((prev) => prev + 1);
   };
 
+  const handleClosePanel = useCallback(() => setIsPanelOpen(false), []);
+  const handleCloseMetadata = useCallback(() => setIsMetadataOpen(false), []);
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-dna-bg flex flex-col items-center justify-center gap-4 text-slate-200">
-        <Loader2 className="w-10 h-10 text-emerald-500 animate-spin" />
+      <div className="min-h-screen bg-cine-bg flex flex-col items-center justify-center gap-4 text-slate-200">
+        <div className="relative">
+          <div className="absolute inset-0 w-12 h-12 rounded-full bg-violet-500/20 animate-ping"></div>
+          <Loader2 className="w-12 h-12 text-violet-500 animate-spin relative z-10" />
+        </div>
         <div className="text-center">
           <h2 className="text-sm font-bold tracking-wider uppercase">Loading Intelligence Portal</h2>
           <p className="text-[11px] text-slate-400 mt-1">Ingesting remittance records from the ETL node...</p>
@@ -76,14 +88,14 @@ export default function Home() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-dna-bg flex flex-col items-center justify-center p-6 text-slate-200">
-        <div className="max-w-md w-full bg-dna-surface border border-red-500/20 p-6 rounded-2xl shadow-2xl space-y-4 text-center">
+      <div className="min-h-screen bg-cine-bg flex flex-col items-center justify-center p-6 text-slate-200">
+        <div className="max-w-md w-full bg-cine-surface border border-red-500/20 p-6 rounded-2xl shadow-2xl space-y-4 text-center">
           <ServerCrash className="w-12 h-12 text-red-500 mx-auto" />
           <h2 className="text-base font-bold uppercase tracking-wider text-slate-100">Service Disconnected</h2>
           <p className="text-xs text-slate-400 leading-relaxed">{error}</p>
-          <div className="bg-dna-bg p-4 rounded-xl border border-slate-800 text-[11px] text-left space-y-2">
+          <div className="bg-cine-bg p-4 rounded-xl border border-cine-border text-[11px] text-left space-y-2">
             <span className="font-bold text-slate-300 block mb-1">To start the backend service:</span>
-            <code className="block text-emerald-400 bg-dna-surface p-2 rounded font-mono">
+            <code className="block text-emerald-400 bg-cine-surface p-2 rounded font-mono">
               cd backend<br />
               .venv\\Scripts\\activate<br />
               python run.py
@@ -91,7 +103,7 @@ export default function Home() {
           </div>
           <button
             onClick={handleRefresh}
-            className="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs py-2.5 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+            className="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold text-xs py-2.5 rounded-lg transition-colors flex items-center justify-center gap-1.5"
           >
             <RefreshCw className={`w-4 h-4 ${refreshing ? "animate-spin" : ""}`} />
             Retry Connection
@@ -102,93 +114,73 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-dna-bg text-slate-200 selection:bg-emerald-500 selection:text-slate-950 font-sans pb-16">
-      {/* Header Banner */}
-      <header className="border-b border-slate-900 bg-dna-bg/80 backdrop-blur sticky top-0 z-[1000] px-4 md:px-8 py-3.5 flex justify-between items-center shadow-lg">
-        <div className="flex items-center gap-3">
-          <div className="w-7 h-7 rounded-lg bg-emerald-500 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-emerald-500/10">
-            R
-          </div>
-          <div>
-            <h1 className="text-xs font-black tracking-widest uppercase text-slate-100 flex items-center gap-1.5">
-              Global Remittance Cost Map
-              <span className="bg-dna-surface border border-slate-800 text-[8px] px-1.5 py-0.5 rounded text-slate-400 font-normal">
-                POC-98
-              </span>
-            </h1>
-            <p className="text-[9px] text-slate-400 font-semibold uppercase tracking-wider mt-0.5">
-              Real Rails Intelligence Library
-            </p>
-          </div>
-        </div>
+    <div className="min-h-screen bg-cine-bg text-slate-200 selection:bg-violet-500 selection:text-white font-sans">
+      {/* Cinematic Header */}
+      <CinematicHeader
+        refreshing={refreshing}
+        onRefresh={handleRefresh}
+        onOpenMetadata={() => setIsMetadataOpen(true)}
+      />
 
-        <div className="flex items-center gap-3.5 text-[10px]">
-          <div className="hidden sm:flex items-center gap-4 text-slate-400 font-semibold uppercase tracking-wider">
-            <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              ETL: Active
-            </span>
-            <span className="flex items-center gap-1">
-              <Layers className="w-3.5 h-3.5 text-slate-400" />
-              Rail Category: Hybrid
-            </span>
-          </div>
-          <button
-            onClick={handleRefresh}
-            disabled={refreshing}
-            className="bg-dna-surface hover:bg-slate-800 text-slate-300 font-bold px-3 py-1.5 rounded border border-slate-800 hover:border-slate-700 transition-colors flex items-center gap-1.5"
-          >
-            <RefreshCw className={`w-3 h-3 ${refreshing ? "animate-spin" : ""}`} />
-            Refresh
-          </button>
-        </div>
-      </header>
+      {/* Metadata Modal */}
+      <MetadataModal
+        isOpen={isMetadataOpen}
+        onClose={handleCloseMetadata}
+      />
 
-      {/* Main Content Dashboard */}
-      <main className="max-w-[1600px] mx-auto px-4 md:px-8 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-start">
-          {/* Left Column - Main Content (70%) */}
-          <div className="lg:col-span-7 space-y-6">
-            {/* Section 1: Dashboard Hero KPIs */}
-            {summary && <DashboardHero summary={summary} />}
+      {/* Intelligence Panel (slide-over) */}
+      <IntelligencePanel
+        isOpen={isPanelOpen}
+        onClose={handleClosePanel}
+      />
 
-            {/* Section 2a: Interactive Corridor Map */}
-            <MapWrapper
-              corridors={corridors}
-              selectedCorridor={selectedCorridor}
-              onSelectCorridor={setSelectedCorridor}
-            />
+      {/* Main Content – Full Width Cinematic Layout */}
+      <main className="pt-16 px-4 md:px-8 pb-16">
+        <div className="space-y-6 max-w-[1800px] mx-auto">
+          {/* Section 1: Dashboard Hero KPIs */}
+          {summary && <DashboardHero summary={summary} />}
 
-            {/* Section 2b: Fee & Exchange Rate Breakdown */}
-            <FeeCompare selectedCorridor={selectedCorridor} allCorridors={corridors} />
+          {/* Section 2a: Interactive Corridor Map – Full Width */}
+          <MapWrapper
+            corridors={corridors}
+            selectedCorridor={selectedCorridor}
+            onSelectCorridor={setSelectedCorridor}
+          />
 
-            {/* Section 3: Speed Ladder & Access points */}
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-              <SpeedLadder selectedCorridor={selectedCorridor} allCorridors={corridors} />
-              <AccessPoints selectedCorridor={selectedCorridor} allCorridors={corridors} />
-            </div>
+          {/* Section 2b: Fee & Exchange Rate Breakdown */}
+          <FeeCompare selectedCorridor={selectedCorridor} allCorridors={corridors} />
 
-            {/* Section 4: Full-width Corridor Explorer Table */}
-            <CorridorTable
-              corridors={corridors}
-              selectedCorridor={selectedCorridor}
-              onSelectCorridor={setSelectedCorridor}
-            />
-
-            {/* Section 5: Ingestion Metadata & Downloads */}
-            <DownloadCenter />
+          {/* Section 3: Speed Ladder & Access Points */}
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <SpeedLadder selectedCorridor={selectedCorridor} allCorridors={corridors} />
+            <AccessPoints selectedCorridor={selectedCorridor} allCorridors={corridors} />
           </div>
 
-          {/* Right Column - Intelligence Sidebar (30%) */}
-          <aside className="lg:col-span-3 space-y-6 lg:sticky lg:top-20">
-            <EducationalCards />
-          </aside>
+          {/* Section 4: Full-width Corridor Explorer Table */}
+          <CorridorTable
+            corridors={corridors}
+            selectedCorridor={selectedCorridor}
+            onSelectCorridor={setSelectedCorridor}
+          />
+
+          {/* Section 5: Ingestion Metadata & Downloads */}
+          <DownloadCenter />
         </div>
       </main>
 
-      {/* Footer disclaimer */}
-      <footer className="text-center text-[10px] text-slate-500 mt-10 px-6 font-semibold uppercase tracking-widest leading-relaxed">
-        Real Rails Intelligence Library © 2026. All rights reserved.<br />
+      {/* Floating Intelligence Panel trigger */}
+      <button
+        onClick={() => setIsPanelOpen(true)}
+        className="fixed bottom-6 right-6 z-[1000] bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 text-white font-bold px-5 py-3 rounded-2xl shadow-xl shadow-violet-500/25 flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-violet-500/40 group"
+        aria-label="Open Intelligence Panel"
+      >
+        <BookOpen className="w-4 h-4 group-hover:rotate-6 transition-transform" />
+        <span className="text-xs tracking-wider uppercase">Intelligence</span>
+      </button>
+
+      {/* Footer */}
+      <footer className="text-center text-[10px] text-slate-500 mt-10 pb-6 px-6 font-semibold uppercase tracking-widest leading-relaxed">
+        Infocreon Internship – Global Remittance Cost Map © 2026. All rights reserved.<br />
         This application uses realistically modeled synthetic reference data.
       </footer>
     </div>
