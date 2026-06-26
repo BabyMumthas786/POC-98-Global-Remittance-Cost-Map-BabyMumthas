@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Global Remittance Cost Map - Real Rails Intelligence Library",
-  description: "Compare cross-border payment corridor fees, settlement speed, accessibility, and learn about global payment rails.",
+  title: "Infocreon Internship – Global Remittance Cost Map",
+  description: "POC-98: Interactive global remittance cost intelligence dashboard. Compare cross-border payment corridor fees, settlement speed, and accessibility.",
 };
 
 export default function RootLayout({
