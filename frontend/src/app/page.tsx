@@ -145,42 +145,45 @@ export default function Home() {
       </header>
 
       {/* Main Content Dashboard */}
-      <main className="max-w-[1600px] mx-auto px-4 md:px-8 py-6 space-y-6">
-        {/* Section 1: Dashboard Hero KPIs */}
-        {summary && <DashboardHero summary={summary} />}
+      <main className="max-w-[1600px] mx-auto px-4 md:px-8 py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-start">
+          {/* Left Column - Main Content (70%) */}
+          <div className="lg:col-span-7 space-y-6">
+            {/* Section 1: Dashboard Hero KPIs */}
+            {summary && <DashboardHero summary={summary} />}
 
-        {/* Section 2: Map & Active Corridor comparison side by side */}
-        <div className="grid grid-cols-1 xl:grid-cols-10 gap-6">
-          <div className="xl:col-span-7">
+            {/* Section 2a: Interactive Corridor Map */}
             <MapWrapper
               corridors={corridors}
               selectedCorridor={selectedCorridor}
               onSelectCorridor={setSelectedCorridor}
             />
-          </div>
-          <div className="xl:col-span-3">
+
+            {/* Section 2b: Fee & Exchange Rate Breakdown */}
             <FeeCompare selectedCorridor={selectedCorridor} allCorridors={corridors} />
+
+            {/* Section 3: Speed Ladder & Access points */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+              <SpeedLadder selectedCorridor={selectedCorridor} allCorridors={corridors} />
+              <AccessPoints selectedCorridor={selectedCorridor} allCorridors={corridors} />
+            </div>
+
+            {/* Section 4: Full-width Corridor Explorer Table */}
+            <CorridorTable
+              corridors={corridors}
+              selectedCorridor={selectedCorridor}
+              onSelectCorridor={setSelectedCorridor}
+            />
+
+            {/* Section 5: Ingestion Metadata & Downloads */}
+            <DownloadCenter />
           </div>
+
+          {/* Right Column - Intelligence Sidebar (30%) */}
+          <aside className="lg:col-span-3 space-y-6 lg:sticky lg:top-20">
+            <EducationalCards />
+          </aside>
         </div>
-
-        {/* Section 3: Speed Ladder & Access points */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <SpeedLadder selectedCorridor={selectedCorridor} allCorridors={corridors} />
-          <AccessPoints selectedCorridor={selectedCorridor} allCorridors={corridors} />
-        </div>
-
-        {/* Section 4: Full-width Corridor Explorer Table */}
-        <CorridorTable
-          corridors={corridors}
-          selectedCorridor={selectedCorridor}
-          onSelectCorridor={setSelectedCorridor}
-        />
-
-        {/* Section 5: Educational Panels */}
-        <EducationalCards />
-
-        {/* Section 6: Ingestion Metadata & Downloads */}
-        <DownloadCenter />
       </main>
 
       {/* Footer disclaimer */}

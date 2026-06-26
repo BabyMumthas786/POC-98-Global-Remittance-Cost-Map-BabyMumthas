@@ -69,7 +69,7 @@ export default function FeeCompare({ selectedCorridor, allCorridors }: FeeCompar
     } else {
       // Calculate average provider stats across all corridors
       const providerSum: { [key: string]: { fee_percent: number; fixed_fee: number; fx_spread: number; count: number } } = {};
-      
+
       allCorridors.forEach((c) => {
         c.providers.forEach((p) => {
           if (!providerSum[p.name]) {
@@ -122,7 +122,7 @@ export default function FeeCompare({ selectedCorridor, allCorridors }: FeeCompar
   };
 
   const chartData = getChartData();
-  
+
   // Sort data so the cheapest provider is at the top
   const sortedChartData = [...chartData].sort((a, b) => a["Total Cost ($)"] - b["Total Cost ($)"]);
 

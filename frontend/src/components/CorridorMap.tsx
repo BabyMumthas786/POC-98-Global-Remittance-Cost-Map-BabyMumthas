@@ -99,7 +99,7 @@ export default function CorridorMap({
   return (
     <div className="relative w-full h-[600px] rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950/65 shadow-2xl">
       {/* Map Controls & Header */}
-      <div className="absolute top-4 left-4 z-[1000] flex flex-col gap-2 max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-800/50 shadow-xl">
+      <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-2 max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-800/50 shadow-xl">
         <h3 className="text-sm font-semibold text-slate-100 flex items-center gap-1.5">
           <Zap className="w-4 h-4 text-emerald-400" />
           Interactive Corridor Map
@@ -216,7 +216,7 @@ export default function CorridorMap({
 
       {/* Corridor details sliding drawer */}
       {selectedCorridor && (
-        <div className="absolute top-4 right-4 z-[1000] max-w-sm w-full bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-xl shadow-2xl p-5 text-slate-200 overflow-y-auto max-h-[560px]">
+        <div className="absolute top-4 left-4 z-[1000] max-w-sm w-full bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-xl shadow-2xl p-5 text-slate-200 overflow-y-auto max-h-[560px]">
           <div className="flex justify-between items-start mb-4 border-b border-slate-800/80 pb-3">
             <div>
               <div className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase">Active Corridor</div>

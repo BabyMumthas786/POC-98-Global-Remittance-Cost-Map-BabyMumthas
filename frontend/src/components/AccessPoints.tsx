@@ -72,14 +72,14 @@ export default function AccessPoints({ selectedCorridor, allCorridors }: AccessP
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
         {/* Left Side: Provider Accessibility Scores */}
         <div className="space-y-3.5">
           <h4 className="text-xs font-semibold text-slate-300 flex items-center gap-1">
             <ShieldCheck className="w-3.5 h-3.5 text-slate-400" />
             Provider Reach Score
           </h4>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {providers.map((p) => {
               // Color based on accessibility score
               let progressColor = "bg-emerald-500";
@@ -110,7 +110,7 @@ export default function AccessPoints({ selectedCorridor, allCorridors }: AccessP
             <Layers className="w-3.5 h-3.5 text-slate-400" />
             Infrastructure Reach
           </h4>
-          <div className="space-y-3">
+          <div className="space-y-4.5">
             {channelDetails.map((ch) => (
               <div key={ch.name} className="flex items-start gap-2.5">
                 <div className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0">
@@ -126,6 +126,17 @@ export default function AccessPoints({ selectedCorridor, allCorridors }: AccessP
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Bottom Informational Insight */}
+      <div className="mt-5 pt-4 border-t border-slate-800/60 text-[10.5px] text-slate-400 flex items-start gap-2.5 bg-slate-900/20 p-3 rounded-xl border border-slate-850">
+        <Users className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+        <div>
+          <span className="font-semibold text-slate-200 block mb-0.5 text-[11px]">Understanding Accessibility Index</span>
+          <p className="leading-relaxed text-[10px] text-slate-400">
+            The accessibility index measures recipient convenience by combining digital compatibility (wallets/banks) and physical payout density (agent networks/cash pickups). Higher values represent lower friction for remote recipients.
+          </p>
         </div>
       </div>
     </div>

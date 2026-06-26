@@ -126,11 +126,10 @@ export default function CorridorTable({
           return (
             <button
               onClick={() => onSelectCorridor(isSelected ? null : row)}
-              className={`flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded border transition-colors ${
-                isSelected
+              className={`flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded border transition-colors ${isSelected
                   ? "bg-emerald-950/40 border-emerald-500/30 text-emerald-400"
                   : "bg-slate-900 hover:bg-slate-800 border-slate-800 text-slate-300"
-              }`}
+                }`}
             >
               <Eye className="w-3.5 h-3.5" />
               {isSelected ? "Active" : "Inspect"}
@@ -244,9 +243,8 @@ export default function CorridorTable({
                 return (
                   <tr
                     key={row.id}
-                    className={`hover:bg-slate-900/40 transition-colors ${
-                      isSelected ? "bg-emerald-950/10 hover:bg-emerald-950/20 border-l border-l-emerald-500" : ""
-                    }`}
+                    className={`hover:bg-slate-900/40 transition-colors ${isSelected ? "bg-emerald-950/10 hover:bg-emerald-950/20 border-l border-l-emerald-500" : ""
+                      }`}
                   >
                     {row.getVisibleCells().map((c) => (
                       <td key={c.id} className="p-3">
