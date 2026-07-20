@@ -1,6 +1,6 @@
 # Global Remittance Cost Map (POC-98)
 
-An enterprise-grade fintech intelligence dashboard for the **Real Rails Intelligence Library** comparing remittance costs, settlement speed, accessibility, and corridor-level characteristics across major global routes.
+An enterprise-grade fintech intelligence dashboard for the **Infocreon Intelligence Library** comparing remittance costs, settlement speed, accessibility, and corridor-level characteristics across major global routes.
 
 This platform helps institutions and developers understand how money moves internationally, who controls the underlying payment rails, and the trade-offs between formal and informal transfer systems.
 

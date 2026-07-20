@@ -67,9 +67,15 @@ export default function Home() {
     setError(null);
     setRefreshTrigger((prev) => prev + 1);
   };
-
   const handleClosePanel = useCallback(() => setIsPanelOpen(false), []);
   const handleCloseMetadata = useCallback(() => setIsMetadataOpen(false), []);
+
+  const handleSelectCorridor = useCallback((corridor: Corridor | null) => {
+    setSelectedCorridor(corridor);
+    if (corridor) {
+      setIsPanelOpen(true);
+    }
+  }, []);
 
   if (loading) {
     return (
@@ -144,7 +150,7 @@ export default function Home() {
           <MapWrapper
             corridors={corridors}
             selectedCorridor={selectedCorridor}
-            onSelectCorridor={setSelectedCorridor}
+            onSelectCorridor={handleSelectCorridor}
           />
 
           {/* Section 2b: Fee & Exchange Rate Breakdown */}
@@ -160,7 +166,7 @@ export default function Home() {
           <CorridorTable
             corridors={corridors}
             selectedCorridor={selectedCorridor}
-            onSelectCorridor={setSelectedCorridor}
+            onSelectCorridor={handleSelectCorridor}
           />
 
           {/* Section 5: Ingestion Metadata & Downloads */}
