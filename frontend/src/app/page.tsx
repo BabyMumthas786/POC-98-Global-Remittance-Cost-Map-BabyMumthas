@@ -126,6 +126,7 @@ export default function Home() {
         refreshing={refreshing}
         onRefresh={handleRefresh}
         onOpenMetadata={() => setIsMetadataOpen(true)}
+        onTogglePanel={() => setIsPanelOpen((prev) => !prev)}
       />
 
       {/* Metadata Modal */}

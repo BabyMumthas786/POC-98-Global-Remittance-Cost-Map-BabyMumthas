@@ -1,18 +1,20 @@
 "use client";
 
 import React from "react";
-import { RefreshCw, Info, Layers } from "lucide-react";
+import { RefreshCw, Info, Layers, BookOpen } from "lucide-react";
 
 interface CinematicHeaderProps {
   refreshing: boolean;
   onRefresh: () => void;
   onOpenMetadata: () => void;
+  onTogglePanel?: () => void;
 }
 
 export default function CinematicHeader({
   refreshing,
   onRefresh,
   onOpenMetadata,
+  onTogglePanel,
 }: CinematicHeaderProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-[1000] bg-cine-bg/60 backdrop-blur-xl border-b border-cine-border/40 shadow-lg shadow-black/20">
@@ -24,7 +26,7 @@ export default function CinematicHeader({
           </div>
           <div>
             <h1 className="text-xs md:text-sm font-black tracking-wider uppercase text-slate-100 flex items-center gap-2">
-              <span className="hidden sm:inline text-slate-400 font-medium">Infocreon Internship –</span>
+              <span className="text-slate-400 font-medium">Infocreon Internship –</span>
               Global Remittance Cost Map
               <span className="bg-cine-surface border border-cine-border text-[8px] px-1.5 py-0.5 rounded text-violet-400 font-mono font-normal hidden md:inline">
                 POC-98
@@ -43,9 +45,21 @@ export default function CinematicHeader({
             </span>
             <span className="flex items-center gap-1">
               <Layers className="w-3.5 h-3.5 text-slate-400" />
-              Rail Category: Hybrid
+              Rail: Financial
             </span>
           </div>
+
+          {/* Intelligence Panel Button */}
+          {onTogglePanel && (
+            <button
+              onClick={onTogglePanel}
+              className="bg-cine-surface hover:bg-violet-600/20 text-violet-300 hover:text-violet-200 font-bold px-3 py-1.5 rounded-lg border border-cine-border hover:border-violet-500/40 transition-all duration-200 flex items-center gap-1.5 text-xs"
+              title="Open Intelligence Panel"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-violet-400" />
+              <span className="hidden sm:inline">Intelligence Panel</span>
+            </button>
+          )}
 
           {/* Refresh button */}
           <button
@@ -62,6 +76,7 @@ export default function CinematicHeader({
             onClick={onOpenMetadata}
             className="w-8 h-8 rounded-lg bg-cine-surface hover:bg-violet-600/20 border border-cine-border hover:border-violet-500/40 flex items-center justify-center transition-all duration-200 group"
             aria-label="Project Metadata"
+            title="Developer Signature & Metadata"
           >
             <Info className="w-4 h-4 text-slate-400 group-hover:text-violet-400 transition-colors" />
           </button>
